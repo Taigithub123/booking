@@ -14,19 +14,13 @@ public class TestController {
     }
 
     @GetMapping("/user")
-    @Secured({"ROLE_USER", "ROLE_SUPER_ADMIN", "ROLE_ADMIN"})
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
     public String userAccess() {
         return "User Content.";
     }
 
-    @GetMapping("/mod")
-    @Secured("ROLE_SUPER_ADMIN")
-    public String moderatorAccess() {
-        return "Moderator Board.";
-    }
-
     @GetMapping("/admin")
-    @Secured({"ROLE_ADMIN", "ROLE_SUPER_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public String adminAccess() {
         return "Admin Board.";
     }
